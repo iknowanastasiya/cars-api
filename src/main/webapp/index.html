@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cars-API</title>
+<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<style>
+h1{
+    color: yellow;
+	padding-top: 40px 
+ }
+ h2{
+    color: yellow;
+  
+ }
+h3{
+    color: black;
+    padding-left: 300px;
+}
+ body
+    {
+        background-color: #809de0;
+    }
+.submit-button{
+    background-color: blue;
+}
+</style>
+
+</head>
+<body>
+		
+<div class="container-fluid">
+	<h2> Add Car </h2>
+	<form class="form-inline" id="form_add_car" method="post" action="/cars">
+		<input type="text" class="form-control" id = "vin" placeholder="Enter Car VIN Number" name="vin" required/>
+		<input type="text" class="form-control" id = "car_make" placeholder="Enter Car Make" name="car_make" required/>
+		<input type="text" class="form-control" id = "car_model" placeholder="Enter Car Model" name="car_model" required/>
+		<input type="number" min="1900" max="2022" class="form-control" id = "year" placeholder="Enter Car Year" name="year" required/>
+		<input type="text" class="form-control" id = "color" placeholder="Enter Car Color" name="color" required/>
+		<input type="number" min="0" step="0.01" class="form-control" id = "cost" placeholder="Enter Car Price" name="cost" required/>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" id="convertible" value="yes" name="convertible">
+			<label class="form-check-label" for="convertible">Convertible</label>
+		  </div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" id="sports" value="yes" name="sports">
+			<label class="form-check-label" for="sports">Sports</label>
+		  </div>
+		 <input class="btn btn-primary mr 1 submit-button" is="add_car" type="submit" value="Add Car" style="height:35px; width:100px" />
+	</form>
+</div>
+
+			
+<div class="container-fluid">
+	<h2> Update Car </h2>
+	<form class="form-inline" id="form_update_car" method="post" action="/cars">	
+		<input type="text" class="form-control" id = "updatevin" placeholder="Enter Car VIN Number" name="vin" required/>
+		<input type="text" class="form-control" id = "updatecolor" placeholder="Enter Car Color" name="color" required/>
+		<input type="number" min="0" step="0.01" class="form-control" id = "updatecost" placeholder="Enter Car Price" name="cost" required/>
+		<input class="btn btn-primary mr 1 submit-button" type="submit" id="update_car" value="Update Car" style="height:35px; width:100px" />
+	</form>
+</div>
+<div class="container-fluid">
+	<h2> Delete Car </h2>
+		<form class = "form-inline" id="form_delete_car">
+			<input type="text" class="form-control" id = "delete_car" placeholder="Enter VIN To Delete" name="delete_car" required/>						
+			<input class="btn btn-primary mr 1 submit-button" type="submit" id="delete_car" value="Delete Car" style="height:35px; width:100px"/>
+		</form>
+</div>
+
+
+<div id="car-list" class = "container-fluid">  
+	<h1 class="text-lg-left">Cars Database</h1>
+		<table id="car-list" class = "table table-hover">
+				<tr>
+					<th scope ="col">VIN</th>
+					<th scope ="col">Car Make</th>
+					<th scope="col">Car Model</th>
+					<th scope="col">Year</th>
+					<th scope="col">Color</th>
+					<th scope="col">Cost</th>
+					<th scope="col">Convertible</th>
+					<th scope="col">Sports</th>
+				</tr>
+			<tbody id="car_table_body">
+							<!-- will add rows to our table dynamically using javascript-->
+							
+			</tbody>
+		</table>
+ </div>
+	
+</body>
+
+<script src="events.js" type="text/javascript">
+
+
+	</script>
+
+
+
+</html>
